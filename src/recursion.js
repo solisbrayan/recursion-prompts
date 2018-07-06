@@ -47,16 +47,29 @@ if(n === 0){
 // sumBelow(7); // 21
 var sumBelow = function(n) {
 if(n === 0){
-  return true;
-}else if (n === 0){
-    return false;
+  return 0;
+}else if (n < 0){
+    return -(-n -1)+ sumBelow(n + 1);
 }
-return n + sumBelow(n - 1);
+return n -1 + sumBelow(n - 1);
 };
 
 // 6. Get the integers within a range (x, y).
 // range(2,9); // [3,4,5,6,7,8]
 var range = function(x, y) {
+var array = []
+if(x === y){
+  return array;
+}if (x < y - 1) {
+  array.push(x + 1)
+  return array.concat(range(x + 1, y))
+  }
+  if (x > y + 1){
+    array.push(x - 1)
+  return array.concat(range(x - 1, y ))
+
+  }
+  return array;
 };
 
 // 7. Compute the exponent of a number.
